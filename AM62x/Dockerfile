@@ -7,10 +7,10 @@ LABEL org.opencontainers.image.source https://github.com/cshilwant/containerized
 RUN export DEBIAN_FRONTEND=noninteractive; apt-get update
 RUN export DEBIAN_FRONTEND=noninteractive; \
          apt-get install -y build-essential autoconf automake \
-         bison flex libssl-dev bc u-boot-tools swig wget tar
+         bison flex libssl-dev bc u-boot-tools swig wget tar vim nano
 
 RUN mkdir /work && cd /work && \
-         wget https://www.dropbox.com/s/wuec2dwxj0gl7fb/processor-sdk-linux-bundle-am62xx-evm.tar.xz?dl=0 && \
+         wget https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/08_06_00_42/processor-sdk-linux-bundle-am62xx-evm.tar.xz && \
          tar -xf processor-sdk-linux-bundle-am62xx-evm.tar.xz && \
          
 ENTRYPOINT ["/bin/bash", "/work/"]
