@@ -34,7 +34,7 @@ jobs:
           docker run --rm --privileged multiarch/qemu-user-static  --reset -p yes
       - name: Build AM62x
         run: |
-            docker build --build-arg BASE_DISTRO=$BASE_DISTRO "AM62x" --tag "am62x"
+            docker build --build-arg BASE_DISTRO=$BASE_DISTRO "am62x" --tag "am62x"
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v2
@@ -52,7 +52,7 @@ jobs:
           # Use Docker `latest` tag convention
           [ "$VERSION" == "main" ] && VERSION=latest
           # Push apps
-          for IMAGE_NAME in $(ls -d demo_b*) $(ls -d app_*)
+          for IMAGE_NAME in $(ls -d am6*)
           do
             IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
             # Change all uppercase to lowercase
