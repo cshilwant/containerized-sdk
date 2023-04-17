@@ -11,7 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
 
 RUN mkdir /tmp/work && cd /tmp/work && \
          wget https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/08_06_00_42/processor-sdk-linux-bundle-am62xx-evm.tar.xz && \
-         tar -xzf processor-sdk-linux-bundle-am62xx-evm.tar.xz && rm processor-sdk-linux-bundle-am62xx-evm.tar.xz \
+         tar -xf processor-sdk-linux-bundle-am62xx-evm.tar.xz && rm processor-sdk-linux-bundle-am62xx-evm.tar.xz \
 
 WORKDIR /tmp/work
 
