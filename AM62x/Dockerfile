@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.source https://github.com/cshilwant/containerized
  
 RUN export DEBIAN_FRONTEND=noninteractive; apt-get update
 RUN export DEBIAN_FRONTEND=noninteractive; \
-         apt-get install -y build-essential autoconf automake \
+         apt-get install -y apt-utils build-essential autoconf automake \
          bison flex libssl-dev bc u-boot-tools swig wget tar vim nano
 
 RUN mkdir /tmp/work && cd /tmp/work && \
