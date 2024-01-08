@@ -9,6 +9,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
 RUN mkdir /tmp/work && cd /tmp/work && \
          wget https://dr-download.ti.com/software-development/software-development-kit-sdk/MD-PvdSyIiioq/09.01.00.08/ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin && \
          chmod +x ./ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin && \
-         ./ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin
+         ./ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin --prefix . --mode unattended && \
+         rm -f ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin
 WORKDIR /tmp/work
 ENTRYPOINT ["/bin/bash"]
