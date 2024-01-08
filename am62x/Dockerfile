@@ -3,10 +3,12 @@ FROM $BASE_DISTRO
 LABEL org.opencontainers.image.source https://github.com/cshilwant/containerized-sdk/AM62X
 RUN export DEBIAN_FRONTEND=noninteractive; apt-get update
 RUN export DEBIAN_FRONTEND=noninteractive; \
-         apt-get install -y apt-utils build-essential autoconf automake \
-         bison flex libssl-dev bc u-boot-tools swig wget tar vim nano
+         apt-get install build-essential autoconf automake bison flex libssl-dev bc u-boot-tools swig python3 python3-pip wget vim nano
+RUN export DEBIAN_FRONTEND=noninteractive; \
+         pip3 install jsonschema pyelftools
 RUN mkdir /tmp/work && cd /tmp/work && \
-         wget https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/08_06_00_42/processor-sdk-linux-bundle-am62xx-evm.tar.xz && \
-         tar -xf processor-sdk-linux-bundle-am62xx-evm.tar.xz && rm processor-sdk-linux-bundle-am62xx-evm.tar.xz
+         wget https://dr-download.ti.com/software-development/software-development-kit-sdk/MD-PvdSyIiioq/09.01.00.08/ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin && \
+         chmod +x ./ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin && \
+         ./ti-processor-sdk-linux-am62xx-evm-09.01.00.08-Linux-x86-Install.bin
 WORKDIR /tmp/work
 ENTRYPOINT ["/bin/bash"]
